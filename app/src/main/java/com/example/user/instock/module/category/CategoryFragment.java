@@ -26,7 +26,7 @@ public class CategoryFragment extends Fragment implements CategoryContract.View,
 
     public static final String CATEGORY_NAME = "com.example.user.instock.module.category.CATEGORY_NAME";
 
-    @BindView(R.id.recycler_view)
+    @BindView(R.id.rec_test)
     RecyclerView recyclerView;
     private String mCategoryName;
     @Override

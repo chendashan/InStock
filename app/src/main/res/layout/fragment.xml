@@ -6,21 +6,21 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/rec_test"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    <!--
-        <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/swipe_refresh_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-            <me.bakumon.ugank.widget.recyclerviewwithfooter.RecyclerViewWithFooter
-                android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="vertical"
-                tools:listitem="@layout/item" />
-        </android.support.v4.widget.SwipeRefreshLayout>
-    -->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.user.instock.widget.recyclerviewwithfooter.RecyclerViewWithFooter
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/item" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 </LinearLayout>
