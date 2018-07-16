@@ -1,6 +1,8 @@
 package com.example.user.instock.module.home;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +12,7 @@ import android.widget.ImageView;
 
 import com.example.user.instock.GlobalConfig;
 import com.example.user.instock.R;
-import com.example.user.instock.base.CommonViewPagerAdapter;
+import com.example.user.instock.adapter.CommonViewPagerAdapter;
 import com.example.user.instock.module.category.CategoryFragment;
 import com.kekstudio.dachshundtablayout.DachshundTabLayout;
 
@@ -30,6 +32,8 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     @BindView(R.id.vp_home_category)
     ViewPager mVpCategory;
 
+    //private HomeContract.Presenter mHomePresenter =
+    public final static int SETTING_REQUEST_CODE = 101;
 
     private CategoryFragment appFragment;
     private CategoryFragment androidFragment;
@@ -48,6 +52,7 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         initView();
+
     }
 
     private void initView() {
@@ -123,5 +128,18 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     @Override
     public void setFabButtonCorlor(int color) {
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (mVpCategory.getCurrentItem()) {
+            case 0:
+                appFragment.onActivityResult(requestCode, resultCode, data);
+                break;
+            case 1:
+                androidFragment.onActivityResult(requestCode, resultCode, data);
+                break;
+        }
     }
 }
